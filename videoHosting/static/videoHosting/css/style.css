@@ -1,0 +1,45 @@
+/* CSS */
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 70px;
+}
+
+main {
+    height: 100%;
+}
+
+.footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+}
+
+.nav-item:last-child {
+    margin-right: 20px;
+}
+
+.linki:first-child {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 992px) {
+    .nav-item:last-child {
+        margin-right: 0;
+    }
+
+    .linki:first-child {
+        margin-right: 0;
+    }
+
+
+    .search {
+        justify-content: center;
+    }
+}

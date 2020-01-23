@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Главная</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'videoHosting/css/style.css' %}">
+</head>
+<body>
+<div class="wrapper">
+    <header class="container-fluid bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark row">
+            <div class="col-1">
+                <a href="{% url 'videoHosting:index' %}">
+                    <svg class="bi bi-camera-video text-white-50" width="50px" height="50px" viewBox="0 0 20 20"
+                         fill="currentColor"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                              d="M4.667 5.5c-.645 0-1.167.522-1.167 1.167v6.666c0 .645.522 1.167 1.167 1.167h6.666c.645 0 1.167-.522 1.167-1.167V6.667c0-.645-.522-1.167-1.167-1.167H4.667zM2.5 6.667C2.5 5.47 3.47 4.5 4.667 4.5h6.666c1.197 0 2.167.97 2.167 2.167v6.666c0 1.197-.97 2.167-2.167 2.167H4.667A2.167 2.167 0 012.5 13.333V6.667z"
+                              clip-rule="evenodd"></path>
+                        <path fill-rule="evenodd"
+                              d="M13.25 7.65l2.768-1.605a.318.318 0 01.482.263v7.384c0 .228-.26.393-.482.264l-2.767-1.605-.502.865 2.767 1.605c.859.498 1.984-.095 1.984-1.129V6.308c0-1.033-1.125-1.626-1.984-1.128L12.75 6.785l.502.865z"
+                              clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedCountent"
+                    aria-controls="navbarSupportedCountent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedCountent">
+                <ul class="navbar-nav">
+                    <li class="nav-item active linki">
+                        <a href="#" class="nav-link text-center btn btn-dark a-nav" data-toggle="modal"
+                           data-target="#exampleModal">Регистрация</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="#" class="nav-link text-center btn btn-dark a-nav2" data-toggle="modal" data-target="#entranceModal">Вход</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 search">
+                    <input type="text" class="form-control mr-sm-2 btn-input" placeholder="Поиск" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0 btn-search">Найти</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    {#  Registration Modal window  #}
+    <div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Регистрация</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail">Адрес электронной почты:</label>
+                            <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" required>
+                            <small id="emailHelp" class="form-text text-muted">Введите вашу электронную почту</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName">Имя пользователя:</label>
+                            <input type="email" class="form-control" id="exampleInputName" aria-describedby="emailHelp" required>
+                            <small id="nameHelp" class="form-text text-muted">Имя пользователя должно быть 30 или менее симловол. Только буквы и цифры.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPass">Пароль:</label>
+                            <input type="password" class="form-control" id="exampleInputPass" required>
+                            <small id="passHelp" class="form-text text-muted">Пароль должен быть больше 6 символов, но более 30</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputConfirmationPassHelp">Подтверждение пароля:</label>
+                            <input type="password" class="form-control" id="exampleInputConfirmationPassHelp" required>
+                            <small id="confirmationPassHelp" class="form-text text-muted">Для подтверждения введите, пожалуйста, пароль ещё раз.</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {# Entrance Modal window  #}
+    <div class="modal" id="entranceModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Регистрация</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail">Имя пользователя:</label>
+                            <input type="email" class="form-control" id="exampleInputEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPass">Пароль:</label>
+                            <input type="password" class="form-control" id="exampleInputPass" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Вход</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer mt-auto py-3 justify-content-end">
+        <div class="container">
+            <span class="text-muted">Place sticky footer content here.</span>
+        </div>
+    </footer>
+</div>
+
+
+<script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+</html>
