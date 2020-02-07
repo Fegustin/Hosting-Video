@@ -1,5 +1,7 @@
 import magic
 from django.core.validators import ValidationError
+from django.contrib.auth.validators import ASCIIUsernameValidator
+from django.utils.translation import ugettext_lazy as _
 
 
 class ValidateFileFormat:
@@ -17,3 +19,14 @@ class ValidateFileFormat:
                 params = {'content_type': content_type_magic}
                 raise ValidationError(self.error_messages['content_type'],
                                       'content_type', params)
+
+
+class UsernameValid(ASCIIUsernameValidator):
+    regex = r'^[\w.@+-\\]+$'
+    message = _(
+        'Введите действительное имя пользователя. Это значение может содержать только английские буквы, '
+        'цифры и символы \ @ /. / + / - / _.'
+    )
+
+
+username_validators = [UsernameValid()]

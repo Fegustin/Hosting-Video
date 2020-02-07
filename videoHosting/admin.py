@@ -1,9 +1,7 @@
 from django.contrib import admin
 
-from .models import Xvideo, Users, Comments
-
+from .models import Xvideo, Comment
 # Register your models here.
 
 admin.site.register(Xvideo)
-admin.site.register(Users)
-admin.site.register(Comments)
+admin.site.register(Comment)

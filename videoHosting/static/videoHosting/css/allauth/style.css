@@ -1,0 +1,15 @@
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 15vh auto;
+}
+.form-confirm-email{
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    margin: 15vh auto;
+}
+.resetPass{
+    margin-bottom: 3px !important;
+}
