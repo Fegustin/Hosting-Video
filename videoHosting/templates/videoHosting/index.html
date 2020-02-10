@@ -57,12 +57,13 @@
         </nav>
     </header>
 
-    <main class="container main-content">
-        <div class="row main-content">
+    <main class="container">
+        <div class="main-content my-4">
+            <div class="row">
                 {% for video in videos %}
                     <!-- Button trigger modal -->
                     <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
+                        <div class="card mb-4 box-shadow modal_cursor" data-target="#exampleModal" data-toggle="modal">
                             <img class="card-img-top"
                                  data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
                                  alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;"
@@ -71,10 +72,10 @@
                             <div class="card-body">
                                 <div class="row d-flex justify-content-between align-items-center">
                                     <div class="btn-group col-5">
-                                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#exampleModal">
-                                            Открыть
-                                        </button>
+{#                                        <button type="button" class="btn btn-primary" data-toggle="modal"#}
+{#                                                data-target="#exampleModal">#}
+{#                                            Открыть#}
+{#                                        </button>#}
                                     </div>
                                     <small class="text-muted">{{ video.pub_date }}</small>
                                 </div>
@@ -102,17 +103,31 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <p>{{ video.description }}</p>
+                                    <div class="container">
+                                        <p>
+                                            <button class="btn btn-primary ebal" type="button" data-toggle="collapse"
+                                                    data-target="#collapseExample" aria-expanded="false"
+                                                    aria-controls="collapseExample">
+                                                Описание
+                                            </button>
+                                        </p>
+                                        <div class="collapse" id="collapseExample">
+                                            <div class="card card-body">
+                                                {{ video.description }}
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 {% endfor %}
+            </div>
         </div>
     </main>
 
 
-    <footer class="footer mt-auto py-3 justify-content-end">
+    <footer class="footer mt-auto py-3 justify-content-end navbar-fixed-bottom">
         <div class="container">
             <span class="text-muted">Place sticky footer content here.</span>
         </div>
@@ -130,5 +145,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+<script src="{% static 'videoHosting/js/script.js' %}"></script>
 </body>
 </html>
