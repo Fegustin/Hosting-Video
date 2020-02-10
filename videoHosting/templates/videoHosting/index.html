@@ -57,14 +57,58 @@
         </nav>
     </header>
 
-    <main class="container">
-        {% for video in videos %}
-            <div class="video">
-                <video controls autoplay name="media">
-                    <source src="{{ video.file.url }}" type="video/mp4">
-                </video>
-            </div>
-        {% endfor %}
+    <main class="container main-content">
+        <div class="row main-content">
+                {% for video in videos %}
+                    <!-- Button trigger modal -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top"
+                                 data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                 alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;"
+                                 src="{{ video.video_splash_screen.url }}"
+                                 data-holder-rendered="true">
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-between align-items-center">
+                                    <div class="btn-group col-5">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#exampleModal">
+                                            Открыть
+                                        </button>
+                                    </div>
+                                    <small class="text-muted">{{ video.pub_date }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">{{ video.name }}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="video">
+                                        <video class="video_elem col-sm" controls name="media">
+                                            <source src="{{ video.file.url }}" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <p>{{ video.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+        </div>
     </main>
 
 

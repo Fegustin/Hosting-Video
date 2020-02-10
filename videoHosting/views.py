@@ -9,6 +9,6 @@ from .models import Xvideo
 
 
 def index(request):
-    img_list = Xvideo.objects.all()
-    context = {'videos': img_list}
+    file_list = Xvideo.objects.all()
+    context = {'videos': file_list}
     return render(request, 'videoHosting/index.html', context)

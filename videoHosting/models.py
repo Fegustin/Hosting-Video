@@ -12,6 +12,7 @@ class Xvideo(models.Model):
     name = models.CharField(verbose_name='Название', max_length=30, null=False)
     description = models.TextField(verbose_name='Описание', max_length=1000)
     file = models.FileField(verbose_name='Видео', upload_to='video/', null=False, )
+    video_splash_screen = models.FileField(verbose_name='Заставка к видео', upload_to='images/', null=False, default='')
     pub_date = models.DateTimeField(verbose_name='Дата публикации', default=timezone.now)
 
     def __str__(self):
