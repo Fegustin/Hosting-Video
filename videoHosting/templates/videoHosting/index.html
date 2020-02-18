@@ -63,7 +63,8 @@
                 {% for video in videos %}
                     <!-- Button trigger modal -->
                     <div class="col-md-4">
-                        <div class="card mb-4 box-shadow modal_cursor" data-target="#exampleModal" data-toggle="modal">
+                        <div class="card mb-4 box-shadow modal_cursor" data-target="#exampleModal-{{ forloop.counter }}" data-toggle="modal">
+                            <span class="text-center">{{ video.name }}</span>
                             <img class="card-img-top"
                                  data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
                                  alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;"
@@ -72,10 +73,10 @@
                             <div class="card-body">
                                 <div class="row d-flex justify-content-between align-items-center">
                                     <div class="btn-group col-5">
-{#                                        <button type="button" class="btn btn-primary" data-toggle="modal"#}
-{#                                                data-target="#exampleModal">#}
-{#                                            Открыть#}
-{#                                        </button>#}
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#exampleModal">
+                                            Открыть
+                                        </button>
                                     </div>
                                     <small class="text-muted">{{ video.pub_date }}</small>
                                 </div>
@@ -84,7 +85,7 @@
                     </div>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                    <div class="modal fade" id="exampleModal-{{ forloop.counter }}" tabindex="-1" role="dialog"
                          aria-labelledby="exampleModalLabel"
                          aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">

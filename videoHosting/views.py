@@ -1,6 +1,3 @@
-import os
-from django.conf import settings
-from django.templatetags.static import static
 from django.shortcuts import render
 
 from .models import Xvideo

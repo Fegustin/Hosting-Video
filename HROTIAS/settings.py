@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'HROTIAS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'historias',
+        'NAME': 'historia',
         'USER': 'ziotyr',
         'PASSWORD': '90afudit',
         'HOST': 'localhost',
