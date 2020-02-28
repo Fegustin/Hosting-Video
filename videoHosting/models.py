@@ -20,8 +20,10 @@ class Xvideo(models.Model):
 
 
 class Comment(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    video_id = models.ForeignKey(Xvideo, on_delete=models.CASCADE, default='')
-    name = models.CharField(verbose_name="Имя", max_length=30)
-    content = models.TextField(verbose_name='Комментарий', max_length=1000)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    video = models.ForeignKey(Xvideo, on_delete=models.CASCADE, default='')
+    content_text = models.TextField(verbose_name='Комментарий', max_length=1000)
     pub_date = models.DateTimeField(verbose_name='Дата публикации', default=timezone.now)
+
+    def __str__(self):
+        return f"Пользователь: {self.user_id}, Видео: {self.video_id}, Дата публикации: {self.pub_date}"
