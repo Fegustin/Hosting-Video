@@ -121,6 +121,7 @@
                                             </div>
                                         </div>
                                         <div>
+                                            {#                 DESCRIPTION VIDEO                 #}
                                             <div class="mt-2">
                                                 <div class="collapse multi-collapse" id="multiCollapseExample1">
                                                     <div class="card card-body">
@@ -128,6 +129,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            {#                COMMENTS                        #}
                                             <div class="mt-2">
                                                 <div class="collapse multi-collapse" id="multiCollapseExample2">
                                                     <div class="card card-body">
@@ -152,10 +154,11 @@
                                                             {% endif %}
                                                         </div>
                                                         <div class="footer_comment">
-                                                            {% for comment in video.comment_set.all %}
-                                                                {{ comment.content_text }}
+                                                            {% for comment in video.comment_set.all reversed %}
+                                                                <ul id="talk">
+                                                                    <li>{{ comment.content_text }}</li>
+                                                                </ul>
                                                             {% endfor %}
-
                                                         </div>
                                                     </div>
                                                 </div>

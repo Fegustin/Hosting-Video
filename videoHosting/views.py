@@ -1,8 +1,7 @@
-import json
-from django.shortcuts import render, HttpResponseRedirect, HttpResponse
+from django.shortcuts import render
 from django.http import JsonResponse
 
-from .forms import CommentForm
+
 from .models import Xvideo, Comment
 
 
@@ -10,28 +9,26 @@ from .models import Xvideo, Comment
 
 
 def index(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.is_ajax():
+        response_data = {}
 
-        form_comment = CommentForm(request.POST)
-        ajax_comment = request.POST.get('comment')
+        comment_under_the_video = Comment(
+            user=request.user,
+            video=Xvideo.objects.get(pk=request.POST.get('video')),
+            content_text=request.POST.get('comment')
+        )
+        comment_under_the_video.save()
 
-        if form_comment.is_valid():
+        response_data['result'] = 'Create post successful!'
+        response_data['user'] = comment_under_the_video.user.username
+        response_data['comment'] = comment_under_the_video.content_text
+        response_data['date'] = comment_under_the_video.pub_date
 
-            form_comment = form_comment.save(commit=False)
-            form_comment.user = request.user
-            # form_comment.content_text = ajax_comment
-            form_comment.video = Xvideo.objects.get(pk=request.POST["video"])
-            form_comment.save()
-
-            return HttpResponseRedirect(request.path_info)
-
-    else:
-        form_comment = CommentForm()
+        return JsonResponse(response_data)
 
     if request.method == "GET":
         file_list = Xvideo.objects.all()
 
-        context = {'videos': file_list,
-                   'form_comment': form_comment}
+        context = {'videos': file_list}
 
         return render(request, 'videoHosting/index.html', context)
