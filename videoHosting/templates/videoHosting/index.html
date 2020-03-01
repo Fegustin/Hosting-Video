@@ -140,14 +140,13 @@
                                                                     <input class="video" type="hidden" name="video"
                                                                            value="{{ video.id }}">
                                                                     <p>
-                                                                        <label>Комментарий:<br/>
-                                                                            <textarea name="content_text" cols="40"
-                                                                                      rows="10" maxlength="1000"
-                                                                                      required=""
-                                                                                      class="content_text"></textarea>
+                                                                        <label><br/>
+                                                                            <textarea name="content_text" minlength="2" cols="80"
+                                                                                      maxlength="1000" required rows="5"
+                                                                                      class="content_text" placeholder="Комментарий"></textarea>
                                                                         </label>
                                                                     </p>
-                                                                    <input type="submit">
+                                                                    <input class="btn btn-primary" type="submit">
 
                                                                     <ul class="talk">
                                                                         {#         new comment        #}
@@ -159,7 +158,11 @@
                                                             <div class="footer_comment">
                                                                 {% for comment in video.comment_set.all reversed %}
                                                                     <ul>
-                                                                        <li>{{ comment.content_text }}</li>
+                                                                        <li class="wrapper_comment">
+                                                                            <div class="comment_user">{{ comment.user.username }}</div>
+                                                                            <div class="comment_text">{{ comment.content_text }}</div>
+                                                                            <div class="comment_pub_date">{{ comment.pub_date }}</div>
+                                                                        </li>
                                                                     </ul>
                                                                 {% endfor %}
                                                             </div>

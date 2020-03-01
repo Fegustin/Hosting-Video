@@ -16,6 +16,40 @@ body {
     background-color: red;
 }
 
+.content_text{
+    width: 100%;
+    resize: none;
+    outline : none;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.wrapper_comment{
+    list-style-type: none;
+    padding: 1em;
+    border-top: 1px solid #818182;
+}
+
+.comment_new{
+    margin-top: 1em;
+}
+
+.comment_user{
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #2a5885;
+}
+
+.comment_text{
+    line-height: 1.36;
+    font-size: 1em;
+}
+
+.comment_pub_date{
+    margin-top: 1em;
+    font-size: .7em;
+}
+
 .footer {
     position: absolute;
     left: 0;
